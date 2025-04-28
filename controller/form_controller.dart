@@ -200,4 +200,52 @@ class FormController extends GetxController {
 
     return true;
   }
+
+  void updateImageField(String fieldName, List<String> imagePaths) {
+    switch (fieldName) {
+      case 'Images':
+        service.value.images = imagePaths;
+        break;
+      case 'Documents':
+        service.value.documents = imagePaths;
+        break;
+      case 'Licence Documents':
+        service.value.licenceDocuments = imagePaths;
+        break;
+      case 'Plan Documents':
+        service.value.planDocuments = imagePaths;
+        break;
+      case 'Financial Capacity Documents':
+        service.value.financialCapacityDocuments = imagePaths;
+        break;
+      case 'CV':
+        service.value.cv = imagePaths;
+        break;
+    }
+    service.refresh();
+  }
+
+  void removeImage(String fieldName, String imagePath) {
+    switch (fieldName) {
+      case 'Images':
+        service.value.images?.remove(imagePath);
+        break;
+      case 'Documents':
+        service.value.documents?.remove(imagePath);
+        break;
+      case 'Licence Documents':
+        service.value.licenceDocuments?.remove(imagePath);
+        break;
+      case 'Plan Documents':
+        service.value.planDocuments?.remove(imagePath);
+        break;
+      case 'Financial Capacity Documents':
+        service.value.financialCapacityDocuments?.remove(imagePath);
+        break;
+      case 'CV':
+        service.value.cv?.remove(imagePath);
+        break;
+    }
+    service.refresh();
+  }
 }
